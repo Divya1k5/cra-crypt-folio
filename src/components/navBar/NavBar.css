@@ -1,0 +1,16 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    padding: 16px;
+    font-size: large;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,53 @@
+.addCardBtn {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: var(--primary-color);
+}
+
+.addCardBtn .cta {
+    font-size: 40px;
+    color: var(--secondary-color);
+}
+
+.addCardBtn .cta:hover {
+    cursor: pointer;
+}
+
+.addCardBtn .menu {
+    padding: 0;
+}
+
+.addCardBtn .menu .item {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    font-size: 20px;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addCardBtn .menu .item.btc {
+    position: relative;
+    top: -115px;
+    left: 0;
+}
+
+.addCardBtn .menu .item.eth {
+    position: relative;
+    top: -242px;
+    left: 0;
+}
+
+.addCardBtn .menu .item.ltc {
+    position: relative;
+    top: -370px;
+    left: 0;
+}
+
+.addCardBtn .menu .item:hover {
+    cursor: pointer;
+}

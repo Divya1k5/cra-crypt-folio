@@ -1,0 +1,8 @@
+html {
+    --primary-color: #0277bd;
+    --secondary-color: #63dcfc;
+}
+
+html * {
+    box-sizing: border-box;
+}
