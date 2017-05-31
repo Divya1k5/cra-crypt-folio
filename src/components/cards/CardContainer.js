@@ -28,6 +28,7 @@ export default class CardContainer extends Component {
             if (card && card.numOfCoins && card.buyPrice) {
                 sanitizedInputs[type] = cards[type];
             }
+            return 0;
         });
         return sanitizedInputs;
     }
@@ -115,7 +116,7 @@ export default class CardContainer extends Component {
                                         Object.keys(this.state.cards).map((type) => {
                                             const card = this.state.cards[type];
                                             if (!card && !card.type) {
-                                                return;
+                                                return 0;
                                             }
 
                                             const numOfCoins = card.numOfCoins || '';
@@ -125,9 +126,6 @@ export default class CardContainer extends Component {
                                     }
                                 </Slider>
                             </div>
-
-                            <AddCardBtn addCard={this.addCard.bind(this)} />
-
                         </div>
                     :
                         <div>
@@ -136,7 +134,7 @@ export default class CardContainer extends Component {
                                     Object.keys(this.state.cards).map((type) => {
                                         const card = this.state.cards[type];
                                         if (!card && !card.type) {
-                                            return;
+                                            return 0;
                                         }
 
                                         const numOfCoins = card.numOfCoins || '';
@@ -147,11 +145,11 @@ export default class CardContainer extends Component {
 
                                 }
                             </div>
-
-                            <AddCardBtn addCard={this.addCard.bind(this)} />
-
                         </div>
                 }
+
+                <AddCardBtn addCard={this.addCard.bind(this)} />
+
                 </div>
         );
     }

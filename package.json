@@ -8,7 +8,7 @@
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "react-swipe": "^5.0.8"
+    "react-slick": "^0.14.11"
   },
   "devDependencies": {
     "json-server": "^0.10.1",

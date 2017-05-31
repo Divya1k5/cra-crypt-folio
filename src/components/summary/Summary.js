@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Summary.css';
 import { PieChart } from 'react-d3/piechart';
-import { api } from '../../common/constants';
 
 export default class Summary extends Component {
 
@@ -23,6 +22,7 @@ export default class Summary extends Component {
         Object.keys(cards).map((type) => {
             const card = cards[type];
             totalInvested = totalInvested + (Number(card.buyPrice) * Number(card.numOfCoins));
+            return 0;
         });
 
         Object.keys(cards).map((type) => {
@@ -33,6 +33,7 @@ export default class Summary extends Component {
                 dataPoint.value = (Math.round(((Number(card.numOfCoins) * Number(card.buyPrice))/totalInvested) * 100));
                 pieData.push(dataPoint);
              }
+            return 0;
         });
         return pieData;
     }

@@ -3,7 +3,7 @@ import './AppShell.css';
 import Header from '../header/Header';
 import NavBar from '../navBar/NavBar';
 import Footer from '../footer/Footer';
-import { routes } from '../../common/routes';
+import { routes } from '../appRoutes/routes';
 
 export default class AppShell extends Component {
     render() {
