@@ -18,6 +18,25 @@
     backface-visibility: hidden;
 }
 
+.card.mobile {
+    width: 98vw;
+}
+
+.card.mobile .cardEdit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.mobile .cardDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .card .nav {
     display: flex;
     flex-direction: row;

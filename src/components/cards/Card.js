@@ -3,7 +3,7 @@ import './Card.css';
 import FaEdit from 'react-icons/lib/fa/edit';
 import FaTrash from 'react-icons/lib/fa/trash-o';
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
-import InputField from '../input/InputField';
+import Input from 'react-toolbox/lib/input/Input';
 import { api } from '../../common/constants';
 import { isMobileDevice } from '../../common/utils';
 
@@ -103,8 +103,8 @@ export default class Card extends Component {
                         </span>
                     </div>
                     <form>
-                        <InputField type='text' label='Number of coins' name='numOfCoins' value={this.state.numOfCoins} onChange={this.updateNumCoins.bind(this)} />
-                        <InputField type='text' label='Buy price in USD' name='buyPrice' value={this.state.buyPrice} onChange={this.updateBuyPrice.bind(this)} />
+                        <Input type='text' label='Number of coins' name='numOfCoins' value={this.state.numOfCoins} onChange={this.updateNumCoins.bind(this)} />
+                        <Input type='text' label='Buy price in USD' name='buyPrice' value={this.state.buyPrice} onChange={this.updateBuyPrice.bind(this)} />
                     </form>
 
                 </div>
