@@ -44,18 +44,6 @@
     cursor: pointer;
 }
 
-.card input {
-    height: var(--input-field-height);
-    padding: var(--external-padding);
-    font-size: small;
-    margin-bottom: var(--internal-padding);
-    margin-right: var(--internal-padding);
-    border-radius: 2px;
-    border: 1px solid var(--primary-color);
-    box-sizing: border-box;
-    width: 100%;
-}
-
 .card .desc {
     display: flex;
     align-items: left;

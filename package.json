@@ -9,17 +9,31 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-slick": "^0.14.11",
+    "react-toolbox": "^2.0.0-beta.12",
     "sw-toolbox": "^3.6.0"
   },
   "devDependencies": {
     "json-server": "^0.10.1",
     "react-icons": "^2.2.5",
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.7",
+    "react-toolbox-themr": "^1.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && cp src/sw/my-runtime-caching-service-worker.js build/ && cp node_modules/sw-toolbox/sw-toolbox.js build/",
+    "start": "npm run toolbox && react-scripts start",
+    "build": "npm run toolbox && react-scripts build && cp src/sw/my-runtime-caching-service-worker.js build/ && cp node_modules/sw-toolbox/sw-toolbox.js build/",
     "test": "react-scripts test --env=jsdom",
+    "toolbox": "react-toolbox-themr",
     "eject": "react-scripts eject"
+  },
+  "reactToolbox": {
+    "include": [
+      "INPUT"
+    ],
+    "customProperties": {
+      "input-text-label-color": "dimgrey",
+      "input-text-bottom-border-color": "#0277bd",
+      "input-text-highlight-color": "#0277bd"
+    },
+    "output": "src/assets/react-toolbox"
   }
 }
