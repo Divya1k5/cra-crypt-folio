@@ -1,54 +1,22 @@
 .card {
     perspective: 1000px;
-    width: 200px;
-    height: 200px;
-    margin: 5px;
-    box-sizing: border-box;
-}
-
-.card.mobile {
-    width: 90vw;
-    margin: 0 auto;
-}
-
-.card.mobile .cardEdit, .card.mobile .cardDetails {
-    width: 90vw;
+    width: var(--card-size);
+    height: var(--card-size);
+    margin: var(--internal-padding-smaller);
 }
 
 .card .cardEdit, .card .cardDetails {
-    color: dimgrey;
-    width: 200px;
-    height: 200px;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    padding: 12px;
     position: absolute;
     top: 0;
+    color: dimgrey;
+    width: var(--card-size);
+    height: var(--card-size);
+    border: var(--border-thickness) solid var(--primary-color);
+    border-radius: var(--card-border-radius);
+    padding: var(--internal-padding);
     overflow: hidden;
     backface-visibility: hidden;
-    box-sizing: border-box;
 }
-
-.card.edit .cardEdit {
-    transform: rotateY(0deg);
-    transition: transform 0.5s ease-in;
-}
-
-.card.edit .cardDetails {
-    transform: rotateY(-180deg);
-    transition: transform 0.7s ease-out;
-}
-
-.card.details .cardDetails {
-    transform: rotateY(0deg);
-    transition: transform 0.5s ease-in;
-}
-
-.card.details .cardEdit {
-    transform: rotateY(180deg);
-    transition: transform 0.7s ease-out;
-}
-
 
 .card .nav {
     display: flex;
@@ -57,19 +25,19 @@
 }
 
 .card h2 {
-    padding: 12px 4px;
+    padding: var(--internal-padding) 4px;
     margin: 0;
 }
 
 .card .nav .right {
-    padding: 12px 12px;
+    padding: var(--internal-padding) var(--internal-padding);
     display: flex;
     align-items: baseline;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .card .nav .right .icon {
-    padding-right: 12px;
+    padding-right: var(--internal-padding);
 }
 
 .card .nav .right .icon:hover {
@@ -77,14 +45,14 @@
 }
 
 .card input {
-    height: 20px;
-    box-sizing: border-box;
-    padding: 18px;
+    height: var(--input-field-height);
+    padding: var(--external-padding);
     font-size: small;
-    margin-bottom: 12px;
-    margin-right: 12px;
+    margin-bottom: var(--internal-padding);
+    margin-right: var(--internal-padding);
     border-radius: 2px;
     border: 1px solid var(--primary-color);
+    box-sizing: border-box;
     width: 100%;
 }
 
@@ -97,7 +65,27 @@
 
 .card .desc .row {
     text-align: left;
-    padding: 4px;
-    font-size: 14px;
+    padding: var(--internal-padding-smaller);
+    font-size: var(--font-size);
     font-family: monospace;
+}
+
+.card.edit .cardEdit {
+    transform: rotateY(0deg);
+    transition: transform var(--transition-time-fast) ease-in;
+}
+
+.card.edit .cardDetails {
+    transform: rotateY(-180deg);
+    transition: transform var(--transition-time-slow) ease-out;
+}
+
+.card.details .cardDetails {
+    transform: rotateY(0deg);
+    transition: transform var(--transition-time-fast) ease-in;
+}
+
+.card.details .cardEdit {
+    transform: rotateY(180deg);
+    transition: transform var(--transition-time-slow) ease-out;
 }

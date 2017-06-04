@@ -1,0 +1,18 @@
+html * {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue";
+}
+
+.module {
+    padding: var(--external-padding);
+}
+
+div {
+    line-height: 1.2em;
+}

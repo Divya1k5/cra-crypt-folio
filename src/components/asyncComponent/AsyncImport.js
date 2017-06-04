@@ -8,7 +8,7 @@ export default function asyncImport(importComponent) {
             super(props);
 
             this.state = {
-                component: null,
+                component: null
             };
         }
 

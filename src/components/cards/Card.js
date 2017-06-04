@@ -4,6 +4,7 @@ import FaEdit from 'react-icons/lib/fa/edit';
 import FaTrash from 'react-icons/lib/fa/trash-o';
 import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import { api } from '../../common/constants';
+import { isMobileDevice } from '../../common/utils';
 
 export default class Card extends Component {
 
@@ -15,8 +16,6 @@ export default class Card extends Component {
             numOfCoins: this.props.numOfCoins || '',
             buyPrice: this.props.buyPrice || ''
         };
-
-        this.isMobileDevice = this.isMobileDevice();
     }
 
     componentDidMount() {
@@ -87,16 +86,10 @@ export default class Card extends Component {
         }
     }
 
-    isMobileDevice() {
-        if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
-            return true;
-        }
-    }
-
     render() {
 
         let cardClassNames = this.state.edit ? 'card edit': 'card details';
-            cardClassNames += this.isMobileDevice ? ' mobile': '';
+            cardClassNames += isMobileDevice() ? ' mobile': '';
 
         return (
             <div className={cardClassNames}>

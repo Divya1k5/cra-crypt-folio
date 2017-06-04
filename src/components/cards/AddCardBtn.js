@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './AddCardBtn.css';
 import MdAdd from 'react-icons/lib/md/add';
 import MdClose from 'react-icons/lib/md/close';
+import { coinTypes } from '../../common/constants';
 
 export default class AddCardBtn extends Component {
 
@@ -9,43 +10,56 @@ export default class AddCardBtn extends Component {
         super(props);
 
         this.state = {
-            isOpen: false
+            isMenuOpen: false
         }
     }
 
-    openMenu() {
-
+    onAddBtnClick() {
         this.setState({
-            isOpen: !this.state.isOpen
-        })
+            isMenuOpen: !this.state.isMenuOpen
+        });
 
     }
 
     addCard(type) {
+        this.setState({
+            isMenuOpen: !this.state.isMenuOpen
+        });
         if (typeof this.props.addCard === 'function') {
             this.props.addCard(type);
         }
     }
 
     render() {
+
+        const menuItemSeparatorHeight = 80;
+
         return (
-            <div className="addCardBtn" onClick={this.openMenu.bind(this)}>
+            <div className="addCardBtnMenu">
 
-                {this.state.isOpen ? (
-                    <div className="cta"><MdClose /></div>
-                ) : (
-                    <div className="cta"><MdAdd /></div>
-                )}
+                <div className="primaryBtn target" onClick={this.onAddBtnClick.bind(this)}>
+                    {this.state.isMenuOpen ? (
+                        <div className="cta"><MdClose /></div>
+                    ) : (
+                        <div className="cta"><MdAdd /></div>
+                    )}
+                </div>
 
-                {this.state.isOpen ? (
+                <div className="list">
 
-                    <div className="menu">
-                        <div className="btc item" onClick={this.addCard.bind(this, 'BTC')}>BTC</div>
-                        <div className="eth item" onClick={this.addCard.bind(this, 'ETH')}>ETH</div>
-                        <div className="ltc item" onClick={this.addCard.bind(this, 'LTC')}>LTC</div>
-                    </div>
+                    {this.state.isMenuOpen ?
+                        
+                        coinTypes.map((coinType, idx) => {
 
-                ) : null}
+                            const itemStyle = {
+                                top: (-1 * ((idx + 1) * menuItemSeparatorHeight)) + 'px'
+                            };
+                            return <div key={coinType} className="item cta target" style={itemStyle} onClick={this.addCard.bind(this, coinType)}>{coinType}</div>;
+                        })
+                        : null
+                    }
+
+                </div>
 
             </div>
         );

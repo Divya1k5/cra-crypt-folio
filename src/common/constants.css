@@ -1,8 +1,15 @@
 html {
     --primary-color: #0277bd;
     --secondary-color: #63dcfc;
-}
-
-html * {
-    box-sizing: border-box;
+    --external-padding: 20px;
+    --internal-padding: 15px;
+    --internal-padding-small: 10px;
+    --internal-padding-smaller: 5px;
+    --input-field-height: 20px;
+    --transition-time-slow: 0.7s;
+    --transition-time-fast: 0.5s;
+    --font-size: 14px;
+    --card-size: 230px;
+    --card-border-radius: 10px;
+    --border-thickness: 2px;
 }

@@ -1,12 +1,6 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-.addCardBtn {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-}
-
 .cardContainer {
     display: flex;
     justify-content: center;

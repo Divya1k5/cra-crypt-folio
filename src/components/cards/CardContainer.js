@@ -3,95 +3,108 @@ import Card from './Card';
 import AddCardBtn from './AddCardBtn';
 import './CardContainer.css';
 import Slider from 'react-slick';
+import { localStorageKey, coinTypes } from '../../common/constants';
+import { getObjFromLocalStorage, setObjInLocalStorage, isMobileDevice } from '../../common/utils';
+
 
 export default class CardContainer extends Component {
 
     constructor(props) {
         super(props);
 
-        let cards = JSON.parse(localStorage.getItem('cryptfolio')) || {};
-
-        cards = this.sanitizeInput(cards);
-
+        let cards = getObjFromLocalStorage(localStorageKey) || {};
+        cards = this.sanitizeData(cards);
         this.state = {
             cards: cards || {},
-            currentSlide: 0
+            activeCardIndex: 0
         };
-
-        this.isMobileDevice = this.isMobileDevice();
     }
 
-    sanitizeInput(cards) {
+    static createNewCard(type) {
+        const newCard = {};
+        newCard[type] = { type: type, numOfCoins: '', buyPrice: ''};
+        return newCard;
+    }
+
+    sanitizeData(cards) {
         const sanitizedInputs = {};
-        Object.keys(cards).map((type) => {
-            const card = cards[type];
-            if (card && card.numOfCoins && card.buyPrice) {
-                sanitizedInputs[type] = cards[type];
+        Object.keys(cards).forEach((key) => {
+            if (cards[key] && this.isCoinTypeValid(cards[key].type) && cards[key].numOfCoins && cards[key].buyPrice) {
+                sanitizedInputs[key] = cards[key];
             }
             return 0;
         });
         return sanitizedInputs;
     }
     
-    addCard(type) {
+    addCard(cardType) {
 
-        const cardAddedAlready = this.hasCardBeenAddedAlready(type);
+        const cardAddedAlready = this.hasCardBeenAddedAlready(this.state.cards, cardType);
 
         if (!cardAddedAlready) {
-            const newCard = {};
-            newCard[type] = { type: type, numOfCoins: '', buyPrice: ''};
-            const updatedCards = Object.assign({}, this.state.cards, newCard);
+            const updatedCards = Object.assign({}, this.state.cards, CardContainer.createNewCard(cardType));
             this.setState({
-                cards: Object.assign({}, this.state.cards, newCard),
-                currentSlide: Object.keys(updatedCards).length - 1
+                cards: updatedCards,
+                activeCardIndex: Object.keys(updatedCards).length - 1
             });
-        } else {
-            console.log('Do Nothing');
         }
+    }
+
+    hasCardBeenAddedAlready(cards, cardType) {
+        return Object.keys(cards).find((card) => card === cardType);
+    }
+
+    isCoinTypeValid(type) {
+        return coinTypes.find((coin) => coin === type);
     }
 
     deleteCard(type) {
 
-        const updatedCards = this.state.cards || {};
+        const updatedCards = Object.assign({},this.state.cards);
+
         if (updatedCards[type]) {
             delete updatedCards[type];
             this.setState({
                 cards: updatedCards,
-                currentSlide: 0
+                activeCardIndex: 0
             });
-            localStorage.setItem('cryptfolio', JSON.stringify(updatedCards));
+
+            setObjInLocalStorage(localStorageKey, updatedCards);
         }
     }
 
     updateCard(type, data) {
 
-        const updatedCards = this.state.cards || {};
+        const updatedCards = Object.assign({},this.state.cards);
+
         if (updatedCards[type]) {
             updatedCards[type] = data;
+
             this.setState({
                 cards: updatedCards
             });
-            localStorage.setItem('cryptfolio', JSON.stringify(updatedCards));
+
+            setObjInLocalStorage(localStorageKey, updatedCards);
         }
     }
 
-    hasCardBeenAddedAlready(type) {
+    buildCards() {
+        return (
+            Object.keys(this.state.cards).map((type) => {
 
-        let cardAdded = false;
+                const card = this.state.cards[type];
+                if (!card && !card.type) {
+                    return 0;
+                }
 
-        Object.keys(this.state.cards).forEach((index, card) => {
-            if (card.type === type) {
-                cardAdded = true;
-            }
-        });
+                const numOfCoins = card.numOfCoins || '';
+                const buyPrice = card.buyPrice || '';
 
-        return cardAdded;
-    }
-
-    isMobileDevice() {
-        if( /Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent) ) {
-            return true;
-        }
+                return <div key={card.type}><Card numOfCoins={numOfCoins} buyPrice={buyPrice} type={card.type}
+                                                  deleteCard={this.deleteCard.bind(this)}
+                                                  updateCard={this.updateCard.bind(this)}/></div>
+            })
+        )
     }
 
     render() {
@@ -102,53 +115,24 @@ export default class CardContainer extends Component {
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: this.state.currentSlide
+            initialSlide: this.state.activeCardIndex
         };
 
         return (
                 <div>
-                {
-                    this.isMobileDevice && Object.keys(this.state.cards).length > 0 ?
-                        <div>
-                            <div className="mobile">
-                                <Slider {...carouselSettings} key={Object.keys(this.state.cards).length}>
-                                    {
-                                        Object.keys(this.state.cards).map((type) => {
-                                            const card = this.state.cards[type];
-                                            if (!card && !card.type) {
-                                                return 0;
-                                            }
+                    {
+                        isMobileDevice() && Object.keys(this.state.cards).length > 0 ?
 
-                                            const numOfCoins = card.numOfCoins || '';
-                                            const buyPrice = card.buyPrice || '';
-                                            return <div key={card.type}><Card numOfCoins={numOfCoins} buyPrice={buyPrice} type={card.type} deleteCard={this.deleteCard.bind(this)} updateCard={this.updateCard.bind(this)} /></div>
-                                        })
-                                    }
-                                </Slider>
-                            </div>
-                        </div>
-                    :
-                        <div>
+                            <Slider {...carouselSettings} key={Object.keys(this.state.cards).length}>
+                                { this.buildCards() }
+                            </Slider>
+                        :
                             <div className="cardContainer">
-                                {
-                                    Object.keys(this.state.cards).map((type) => {
-                                        const card = this.state.cards[type];
-                                        if (!card && !card.type) {
-                                            return 0;
-                                        }
-
-                                        const numOfCoins = card.numOfCoins || '';
-                                        const buyPrice = card.buyPrice || '';
-                                        return <Card key={card.type} numOfCoins={numOfCoins} buyPrice={buyPrice} type={card.type} deleteCard={this.deleteCard.bind(this)} updateCard={this.updateCard.bind(this)} />
-                                    })
-
-
-                                }
+                                { this.buildCards() }
                             </div>
-                        </div>
-                }
+                    }
 
-                <AddCardBtn addCard={this.addCard.bind(this)} />
+                    <AddCardBtn addCard={this.addCard.bind(this)} />
 
                 </div>
         );

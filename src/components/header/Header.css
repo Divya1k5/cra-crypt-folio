@@ -1,12 +1,12 @@
 header {
     background-color: var(--primary-color);
+    color: var(--secondary-color);
     height: 20px;
     padding: 35px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: var(--secondary-color);
 }
 
 .appLogo {

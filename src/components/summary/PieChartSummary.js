@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './Summary.css';
 import { PieChart } from 'react-d3/piechart';
 
-export default class Summary extends Component {
+export default class PieChartSummary extends Component {
 
     constructor(props) {
         super(props);
@@ -43,11 +42,11 @@ export default class Summary extends Component {
         const renderChart = Object.keys(this.state.data).length > 0;
 
         return (
-            <div className="summary">
+            <div className="module">
 
                 {
                     renderChart ? (
-                        <PieChart data={this.state.data} width={450} height={400} radius={110} innerRadius={20} sectorBorderColor="white" title="" />
+                        <PieChart data={this.state.data} width={450} height={450} radius={110} innerRadius={20} sectorBorderColor="white" title="" />
                     ) : (
                         <div> You don't own any cryptocoins in your profile yet!</div>
                     )

@@ -3,7 +3,7 @@ footer {
     position: fixed;
     bottom: 0;
     box-sizing: border-box;
-    padding: 16px;
+    padding: var(--external-padding);
 }
 
 footer p {

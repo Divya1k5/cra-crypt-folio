@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Summary from '../components/summary/Summary';
+import PieChartSummary from '../components/summary/PieChartSummary';
 
 export default class SummaryPage extends Component {
     render() {
         return (
             <div>
-                <Summary />
+                <PieChartSummary />
             </div>
         );
     }

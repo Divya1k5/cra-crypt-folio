@@ -1,16 +1,16 @@
-ul {
+nav ul {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-li {
-    padding: 16px;
+nav ul li {
+    padding: var(--internal-padding);
     font-size: large;
     list-style: none;
 }
 
-a {
+nav a {
     text-decoration: none;
 }
