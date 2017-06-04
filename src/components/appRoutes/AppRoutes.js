@@ -7,14 +7,14 @@ export default class AppRoutes extends Component {
 
     constructor(props) {
         super(props);
-        this.AsyncAppShell = asyncImport(() => { return import('../../components/appShell/AppShell') });
+        this.AsyncApp = asyncImport(() => { return import('../../components/app/App') });
     }
 
     render() {
 
         return (
             <Router onUpdate={() => window.scrollTo(0, 0)}>
-                <Route path="/" component= {this.AsyncAppShell} />
+                <Route path="/" component= {this.AsyncApp} />
             </Router>
         );
     }

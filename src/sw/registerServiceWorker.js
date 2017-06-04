@@ -45,14 +45,13 @@ export default function register() {
           console.error('Error during service worker registration:', error);
         });
     });
-    
-    /* Avoiding npm run eject by installing a separate service worker that will perform runtime data caching.
-       Best practice is to run eject and make it webpack aware.
+
+    /* Hack: Avoiding npm run eject by installing a separate service worker that will perform runtime data caching.
+       Best practice is to run eject and make it webpack aware. This is a hack until create-react-app allows for runtime caching with sw.
       */
     navigator.serviceWorker
         .register(`${process.env.PUBLIC_URL}/my-runtime-caching-service-worker.js`)
         .then(registration => {
-          console.error('Runtime caching service worker installed.');
         })
         .catch(error => {
           console.error('Error during service worker registration:', error);

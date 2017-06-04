@@ -8,6 +8,6 @@ var api = {
 
 for(var key in api) {
     if (api.hasOwnProperty(key)) {
-        toolbox.router.get(api[key], toolbox.cacheFirst);
+        toolbox.router.get(api[key], toolbox.networkFirst);
     }
 }

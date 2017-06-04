@@ -12,4 +12,5 @@ html {
     --card-size: 230px;
     --card-border-radius: 10px;
     --border-thickness: 2px;
+    --notification-bar-height: 50px;
 }

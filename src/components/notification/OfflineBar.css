@@ -1,0 +1,11 @@
+#OfflineNotification {
+    height: var(--notification-bar-height);
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#OfflineNotification.hidden {
+    display: none;
+}
