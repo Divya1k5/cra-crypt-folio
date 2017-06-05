@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './AddCardBtn.css';
 import MdAdd from 'react-icons/lib/md/add';
 import MdClose from 'react-icons/lib/md/close';
 import { coinTypes } from '../../common/constants';
+import './AddCardBtn.css';
 
 export default class AddCardBtn extends Component {
 
@@ -37,7 +37,7 @@ export default class AddCardBtn extends Component {
         return (
             <div className="addCardBtnMenu">
 
-                <div className="primaryBtn target" onClick={this.onAddBtnClick.bind(this)}>
+                <div className="primaryBtn target" onClick={this.onAddBtnClick.bind(this)} data-test="primaryBtn">
                     {this.state.isMenuOpen ? (
                         <div className="cta"><MdClose /></div>
                     ) : (

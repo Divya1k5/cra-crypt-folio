@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Testing on AddCardBtn AddCardBtn renders correctly 1`] = `
+<div
+  className="addCardBtnMenu"
+>
+  <div
+    className="primaryBtn target"
+    data-test="primaryBtn"
+    onClick={[Function]}
+  >
+    <div
+      className="cta"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": undefined,
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 40 40"
+        width="1em"
+      >
+        <g>
+          <path
+            d="m31.6 21.6h-10v10h-3.2v-10h-10v-3.2h10v-10h3.2v10h10v3.2z"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div
+    className="list"
+  />
+</div>
+`;
+
+exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu 1`] = `
+<div
+  className="addCardBtnMenu"
+>
+  <div
+    className="primaryBtn target"
+    data-test="primaryBtn"
+    onClick={[Function]}
+  >
+    <div
+      className="cta"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": undefined,
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 40 40"
+        width="1em"
+      >
+        <g>
+          <path
+            d="m31.6 21.6h-10v10h-3.2v-10h-10v-3.2h10v-10h3.2v10h10v3.2z"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div
+    className="list"
+  />
+</div>
+`;
+
+exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu 2`] = `
+<div
+  className="addCardBtnMenu"
+>
+  <div
+    className="primaryBtn target"
+    data-test="primaryBtn"
+    onClick={[Function]}
+  >
+    <div
+      className="cta"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": undefined,
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 40 40"
+        width="1em"
+      >
+        <g>
+          <path
+            d="m31.6 10.7l-9.3 9.3 9.3 9.3-2.3 2.3-9.3-9.3-9.3 9.3-2.3-2.3 9.3-9.3-9.3-9.3 2.3-2.3 9.3 9.3 9.3-9.3z"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div
+    className="list"
+  >
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "top": "-80px",
+        }
+      }
+    >
+      BTC
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "top": "-160px",
+        }
+      }
+    >
+      ETH
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "top": "-240px",
+        }
+      }
+    >
+      LTC
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu 3`] = `
+<div
+  className="addCardBtnMenu"
+>
+  <div
+    className="primaryBtn target"
+    data-test="primaryBtn"
+    onClick={[Function]}
+  >
+    <div
+      className="cta"
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": undefined,
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 40 40"
+        width="1em"
+      >
+        <g>
+          <path
+            d="m31.6 21.6h-10v10h-3.2v-10h-10v-3.2h10v-10h3.2v10h10v3.2z"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div
+    className="list"
+  />
+</div>
+`;
