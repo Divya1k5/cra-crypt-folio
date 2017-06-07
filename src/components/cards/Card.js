@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Card.css';
 import FaEdit from 'react-icons/lib/fa/edit';
 import FaTrash from 'react-icons/lib/fa/trash-o';
-import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import Input from 'react-toolbox/lib/input/Input';
+import Button from 'react-toolbox/lib/button/Button';
 import { api } from '../../common/constants';
 import { isMobileDevice } from '../../common/utils';
 
@@ -15,7 +15,8 @@ export default class Card extends Component {
         this.state = {
             edit: !(this.props.numOfCoins && this.props.buyPrice),
             numOfCoins: this.props.numOfCoins || '',
-            buyPrice: this.props.buyPrice || ''
+            buyPrice: this.props.buyPrice || '',
+            isActive: this.props.isActive || false
         };
     }
 
@@ -98,13 +99,13 @@ export default class Card extends Component {
                     <div className="nav">
                         <h2>{this.props.type}</h2>
                             <span className="right">
-                            <span className="icon" onClick={this.deleteCard.bind(this)}><FaTrash /></span>
-                            <span className="icon" onClick={this.updateCard.bind(this)}><FaCheckCircle /></span>
+                            <span className="trash icon" onClick={this.deleteCard.bind(this)}><FaTrash /></span>
                         </span>
                     </div>
                     <form>
-                        <Input type='text' label='Number of coins' name='numOfCoins' value={this.state.numOfCoins} onChange={this.updateNumCoins.bind(this)} />
+                        <Input type='text' label='Number of coins' name='numOfCoins' value={this.state.numOfCoins} onChange={this.updateNumCoins.bind(this)} autoFocus={this.state.isActive? 'autoFocus': ''} />
                         <Input type='text' label='Buy price in USD' name='buyPrice' value={this.state.buyPrice} onChange={this.updateBuyPrice.bind(this)} />
+                        <Button label='Save' onClick={this.updateCard.bind(this)} raised primary />
                     </form>
 
                 </div>
@@ -112,36 +113,36 @@ export default class Card extends Component {
                 <div className="cardDetails">
 
                     <div className="nav">
-                        <h2>{this.props.type}</h2>
-                        <span className="right">
-                            <span className="icon" onClick={this.deleteCard.bind(this)}><FaTrash /></span>
+                        <div className="coinTypeAndEdit">
+                            <h2>{this.props.type}</h2>
                             <span className="icon" onClick={this.flipCard.bind(this)}><FaEdit /></span>
+                        </div>
+                        <span className="right">
+                            <span className="trash icon" onClick={this.deleteCard.bind(this)}><FaTrash /></span>
                         </span>
                     </div>
 
                     <div className="desc">
                         <div className="row">
-                            <span># coins: </span>
+                            <span>Coins: </span>
                             <span>{this.state.numOfCoins || 0}</span>
                         </div>
                         <div className="row">
-                            <span>Buy price: </span>
-                            <span>{this.state.buyPrice || 0}</span>
+                            <span>Purchase Price: </span>
+                            <span>${this.state.buyPrice ? parseFloat(this.state.buyPrice).toLocaleString() : 0}</span>
                         </div>
                         <div className="row">
-                            <span>Current price: </span>
-                            <span>{this.state.currentPrice || 0}</span>
+                            <span>Current Price: </span>
+                            <span>${this.state.currentPrice ? parseFloat(this.state.currentPrice).toLocaleString() : 0}</span>
                         </div>
                         <div className="row">
                             <span>{this.state.isProfit ? 'Profit: ': 'Loss: '}</span>
-                            <span>{this.state.profit}$</span>
+                            <span>${this.state.profit ? parseFloat(this.state.profit).toLocaleString() : 0}</span>
                         </div>
-                        <div className="row">
-                            <span>{this.state.isProfit ? 'Profit%: ': 'Loss%: '}</span>
-                            <span>{this.state.profitPercentage}%</span>
+                        <div className={this.state.isProfit ? 'profit': 'loss'}>
+                            (<span>{this.state.profitPercentage}%</span>)
                         </div>
                     </div>
-
                 </div>
             </div>
         );

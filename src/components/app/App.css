@@ -3,4 +3,12 @@
 
 .app {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.appContent {
+    flex: 1 1 auto;
+    margin: 32px 0;
 }

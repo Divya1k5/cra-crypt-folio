@@ -6,8 +6,10 @@ export default class Header extends Component {
     render() {
         return (
             <header>
-                <img src={logo} className="appLogo" alt="logo" />
-                <h2>CryptFolio</h2>
+                <div className="logoAndAppName">
+                    <img src={logo} className="appLogo" alt="logo" />
+                    <h2>CryptFolio</h2>
+                </div>
             </header>
         );
     }

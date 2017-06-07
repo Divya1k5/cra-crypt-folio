@@ -11,3 +11,7 @@
     position: relative;
     flex-wrap: wrap;
 }
+
+.message {
+    margin-top: 16px;
+}

@@ -1,16 +1,5 @@
-nav ul {
+nav {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-
-nav ul li {
-    padding: var(--internal-padding);
-    font-size: large;
-    list-style: none;
-}
-
-nav a {
-    text-decoration: none;
 }

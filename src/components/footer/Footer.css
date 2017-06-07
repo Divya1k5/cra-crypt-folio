@@ -1,8 +1,5 @@
 footer {
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    box-sizing: border-box;
     padding: var(--external-padding);
 }
 

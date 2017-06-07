@@ -64,12 +64,16 @@
   },
   "reactToolbox": {
     "include": [
-      "INPUT"
+      "INPUT",
+      "TABS",
+      "BUTTON"
     ],
     "customProperties": {
       "input-text-label-color": "dimgrey",
       "input-text-bottom-border-color": "#0277bd",
-      "input-text-highlight-color": "#0277bd"
+      "input-text-highlight-color": "#0277bd",
+      "tab-text-color": "#0277bd",
+      "tab-pointer-color": "#63dcfc"
     },
     "output": "src/assets/react-toolbox"
   },

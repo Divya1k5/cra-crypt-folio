@@ -6,7 +6,6 @@ import Slider from 'react-slick';
 import { localStorageKey, coinTypes } from '../../common/constants';
 import { getObjFromLocalStorage, setObjInLocalStorage, isMobileDevice } from '../../common/utils';
 
-
 export default class CardContainer extends Component {
 
     constructor(props) {
@@ -90,7 +89,7 @@ export default class CardContainer extends Component {
 
     buildCards() {
         return (
-            Object.keys(this.state.cards).map((type) => {
+            Object.keys(this.state.cards).map((type, index) => {
 
                 const card = this.state.cards[type];
                 if (!card && !card.type) {
@@ -102,7 +101,8 @@ export default class CardContainer extends Component {
 
                 return <div key={card.type}><Card numOfCoins={numOfCoins} buyPrice={buyPrice} type={card.type}
                                                   deleteCard={this.deleteCard.bind(this)}
-                                                  updateCard={this.updateCard.bind(this)}/></div>
+                                                  updateCard={this.updateCard.bind(this)}
+                                                  isActive={this.state.activeCardIndex === index}  /></div>
             })
         )
     }
@@ -120,16 +120,25 @@ export default class CardContainer extends Component {
 
         return (
                 <div>
-                    {
-                        isMobileDevice() && Object.keys(this.state.cards).length > 0 ?
 
-                            <Slider {...carouselSettings} key={Object.keys(this.state.cards).length}>
-                                { this.buildCards() }
-                            </Slider>
+                    { Object.keys(this.state.cards).length === 0 ?
+
+                        <div>
+                            <div className="message">You don't own any cryptocoins in your profile yet! </div>
+                            <div className="message">Click on the + button on the bottom right to start adding coins to your profile</div>
+                        </div>
+
                         :
-                            <div className="cardContainer">
-                                { this.buildCards() }
-                            </div>
+                            isMobileDevice() && Object.keys(this.state.cards).length > 0 ?
+
+                                <Slider {...carouselSettings} key={Object.keys(this.state.cards).length}>
+                                    { this.buildCards() }
+                                </Slider>
+                            :
+                                <div className="cardContainer">
+                                    { this.buildCards() }
+                                </div>
+
                     }
 
                     <AddCardBtn addCard={this.addCard.bind(this)} />

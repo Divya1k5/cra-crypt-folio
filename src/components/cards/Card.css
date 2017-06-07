@@ -11,11 +11,12 @@
     color: dimgrey;
     width: var(--card-size);
     height: var(--card-size);
-    border: var(--border-thickness) solid var(--primary-color);
-    border-radius: var(--card-border-radius);
+    border-radius: 4px;
+    border: 1px solid #ccc;
     padding: var(--internal-padding);
     overflow: hidden;
     backface-visibility: hidden;
+    box-shadow: 4px 4px 25px -5px rgba(0,0,0,0.25);
 }
 
 .card.mobile {
@@ -24,9 +25,6 @@
 
 .card.mobile .cardEdit {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .card.mobile .cardDetails {
@@ -37,45 +35,85 @@
     justify-content: center;
 }
 
+.card .nav .coinTypeAndEdit {
+    display: flex;
+}
+
+.card.mobile .nav {
+    width: 100%;
+}
+
+.card .nav .coinTypeAndEdit .icon {
+    margin-left: 16px;
+    font-size: 22px;
+}
+
+.card .trash.icon {
+    color: palevioletred;
+}
+
 .card .nav {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     color: var(--primary-color);
 }
 
 .card h2 {
-    padding: var(--internal-padding) 4px;
     margin: 0;
 }
 
 .card .nav .right {
-    padding: var(--internal-padding) var(--internal-padding);
     display: flex;
     align-items: baseline;
     font-size: 22px;
 }
 
-.card .nav .right .icon {
-    padding-right: var(--internal-padding);
+.card .nav .icon:hover {
+    cursor: pointer;
 }
 
-.card .nav .right .icon:hover {
-    cursor: pointer;
+.card.mobile .desc {
+    width: 100%;
 }
 
 .card .desc {
     display: flex;
-    align-items: left;
     flex-direction: column;
-    justify-content: center;
+    margin-top: var(--external-padding);
 }
 
 .card .desc .row {
-    text-align: left;
-    padding: var(--internal-padding-smaller);
-    font-size: var(--font-size);
-    font-family: monospace;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: var(--internal-padding-small) 0;
 }
+
+.card .profit {
+    color: green;
+    font-size: 12px;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.card .loss {
+    color: indianred;
+    font-size: 12px;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.card .profit span::before {
+    content: '▲';
+}
+
+.card .loss span::before {
+    content: '▼';
+    vertical-align: middle;
+}
+
 
 .card.edit .cardEdit {
     transform: rotateY(0deg);
