@@ -17,8 +17,8 @@ export default class App extends Component {
 
                     <section className="header">
                         <Header />
-                        <NavBar />
                         <OfflineBar />
+                        <NavBar />
                     </section>
 
                     <section className="appContent">
