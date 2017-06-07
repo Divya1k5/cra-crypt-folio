@@ -24,16 +24,18 @@ export default class PieChartSummary extends Component {
             return 0;
         });
 
-        Object.keys(cards).map((type) => {
-            const card = cards[type];
-            if (card && card.numOfCoins && card.buyPrice) {
-                let dataPoint = {};
-                dataPoint.label = card.type;
-                dataPoint.value = (Math.round(((Number(card.numOfCoins) * Number(card.buyPrice))/totalInvested) * 100));
-                pieData.push(dataPoint);
-             }
-            return 0;
-        });
+        if (totalInvested > 0) {
+            Object.keys(cards).map((type) => {
+                const card = cards[type];
+                if (card && card.numOfCoins > 0 && card.buyPrice > 0) {
+                    let dataPoint = {};
+                    dataPoint.label = card.type;
+                    dataPoint.value = (Math.round(((Number(card.numOfCoins) * Number(card.buyPrice))/totalInvested) * 100));
+                    pieData.push(dataPoint);
+                }
+                return 0;
+            });
+        }
         return pieData;
     }
 
@@ -45,8 +47,8 @@ export default class PieChartSummary extends Component {
             <div className="module">
 
                 {
-                    renderChart ? (
-                        <PieChart data={this.state.data} width={450} height={450} radius={110} innerRadius={20} sectorBorderColor="white" title="" />
+                    renderChart && this.state.data.length > 0? (
+                        <PieChart data={this.state.data} width={320} height={320} radius={110} innerRadius={20} sectorBorderColor="white" title="" />
                     ) : (
                         <div> You don't own any cryptocoins in your profile yet!</div>
                     )
