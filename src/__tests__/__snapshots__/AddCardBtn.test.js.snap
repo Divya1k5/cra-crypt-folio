@@ -35,7 +35,47 @@ exports[`Snapshot Testing on AddCardBtn AddCardBtn renders correctly 1`] = `
   </div>
   <div
     className="list"
-  />
+  >
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-80px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      BTC
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-160px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      ETH
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-240px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      LTC
+    </div>
+  </div>
 </div>
 `;
 
@@ -74,7 +114,47 @@ exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu
   </div>
   <div
     className="list"
-  />
+  >
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-80px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      BTC
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-160px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      ETH
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-240px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      LTC
+    </div>
+  </div>
 </div>
 `;
 
@@ -119,7 +199,9 @@ exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu
       onClick={[Function]}
       style={
         Object {
+          "opacity": 1,
           "top": "-80px",
+          "transition": "opacity 0.3s ease-in",
         }
       }
     >
@@ -130,7 +212,9 @@ exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu
       onClick={[Function]}
       style={
         Object {
+          "opacity": 1,
           "top": "-160px",
+          "transition": "opacity 0.3s ease-in",
         }
       }
     >
@@ -141,7 +225,9 @@ exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu
       onClick={[Function]}
       style={
         Object {
+          "opacity": 1,
           "top": "-240px",
+          "transition": "opacity 0.3s ease-in",
         }
       }
     >
@@ -186,6 +272,46 @@ exports[`Snapshot Testing on AddCardBtn AddCardBtn renders opens and closes menu
   </div>
   <div
     className="list"
-  />
+  >
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-80px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      BTC
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-160px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      ETH
+    </div>
+    <div
+      className="item cta target"
+      onClick={[Function]}
+      style={
+        Object {
+          "opacity": 0,
+          "top": "-240px",
+          "transition": "opacity 0.3s ease-in",
+        }
+      }
+    >
+      LTC
+    </div>
+  </div>
 </div>
 `;

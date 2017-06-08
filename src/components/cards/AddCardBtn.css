@@ -21,7 +21,7 @@
     height: 60px;
     width: 60px;
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: white;
 }
 
 .addCardBtnMenu .target:hover {

@@ -103,8 +103,8 @@ export default class Card extends Component {
                         </span>
                     </div>
                     <form>
-                        <Input type='text' label='Number of coins' name='numOfCoins' value={this.state.numOfCoins} onChange={this.updateNumCoins.bind(this)} autoFocus={this.state.isActive? 'autoFocus': ''} />
-                        <Input type='text' label='Buy price in USD' name='buyPrice' value={this.state.buyPrice} onChange={this.updateBuyPrice.bind(this)} />
+                        <Input type='text' autoComplete="off" label='Number of coins' name='numOfCoins' value={this.state.numOfCoins} onChange={this.updateNumCoins.bind(this)} autoFocus={this.state.isActive? 'autoFocus': ''} />
+                        <Input type='text' autoComplete="off" label='Buy price in USD' name='buyPrice' value={this.state.buyPrice} onChange={this.updateBuyPrice.bind(this)} />
                         <Button label='Save' onClick={this.updateCard.bind(this)} raised primary />
                     </form>
 

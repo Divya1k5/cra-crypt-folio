@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../header/Header';
 import NavBar from '../navBar/NavBar';
 import OfflineBar from '../notification/OfflineBar';
+import NewContentBar from '../notification/NewContentBar';
 import Footer from '../footer/Footer';
 import { routes } from '../appRoutes/routes';
 import theme from '../../assets/react-toolbox/theme';
@@ -18,6 +19,7 @@ export default class App extends Component {
                     <section className="header">
                         <Header />
                         <OfflineBar />
+                        <NewContentBar />
                         <NavBar />
                     </section>
 
