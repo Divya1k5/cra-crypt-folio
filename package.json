@@ -73,7 +73,8 @@
       "input-text-bottom-border-color": "#0277bd",
       "input-text-highlight-color": "#0277bd",
       "tab-text-color": "#0277bd",
-      "tab-pointer-color": "#63dcfc"
+      "tab-pointer-color": "#63dcfc",
+      "button-primary-color": "#0277bd"
     },
     "output": "src/assets/react-toolbox"
   },

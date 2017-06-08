@@ -48,7 +48,7 @@ export default class PieChartSummary extends Component {
 
                 {
                     renderChart && this.state.data.length > 0? (
-                        <PieChart data={this.state.data} width={320} height={320} radius={110} innerRadius={20} sectorBorderColor="white" title="" />
+                        <PieChart data={this.state.data} width={300} height={320} radius={110} innerRadius={20} sectorBorderColor="white" title="" />
                     ) : (
                         <div> You don't own any cryptocoins in your profile yet!</div>
                     )

@@ -3,13 +3,24 @@
   "name": "CryptFolio",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "app-icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "app-icon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "app-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "theme_color": "#0277bd",
-  "background_color": "#ffffff"
+  "manifest theme-color": "#0277bd",
+  "background_color": "#0277bd"
 }

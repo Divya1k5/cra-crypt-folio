@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MdAdd from 'react-icons/lib/md/add';
 import MdClose from 'react-icons/lib/md/close';
 import { coinTypes } from '../../common/constants';
+import { isMobileDevice } from '../../common/utils';
 import './AddCardBtn.css';
 
 export default class AddCardBtn extends Component {
@@ -47,17 +48,30 @@ export default class AddCardBtn extends Component {
 
                 <div className="list">
 
-                    {this.state.isMenuOpen ?
-                        
+                    {
                         coinTypes.map((coinType, idx) => {
 
-                            const itemStyle = {
-                                top: (-1 * ((idx + 1) * menuItemSeparatorHeight)) + 'px'
-                            };
+                            let itemStyle = { };
+
+
+                            if (isMobileDevice()) {
+                                itemStyle = {
+                                    left: (-1 * ((idx + 1) * menuItemSeparatorHeight)) + 'px',
+                                    bottom: 0,
+                                    opacity: this.state.isMenuOpen ? 1 : 0,
+                                    transition: 'opacity 0.3s ease-in'
+                                };
+                            } else {
+                                itemStyle = {
+                                    top: (-1 * ((idx + 1) * menuItemSeparatorHeight)) + 'px',
+                                    opacity: this.state.isMenuOpen ? 1 : 0,
+                                    transition: 'opacity 0.3s ease-in'
+                                };
+                            }
                             return <div key={coinType} className="item cta target" style={itemStyle} onClick={this.addCard.bind(this, coinType)}>{coinType}</div>;
                         })
-                        : null
                     }
+
 
                 </div>
 
